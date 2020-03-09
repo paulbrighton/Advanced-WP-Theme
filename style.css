@@ -1,0 +1,169 @@
+/*
+Theme Name: Advanced WP
+Author: Paul Brighton
+Author URI: http://paulbrighton.com
+Description: Advanced WordPress Theme
+Version: 1.0
+*/
+
+body {
+  font-family: lato;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #009acd;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #333;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+header {
+  background: #f4f4f4;
+  padding: 10px;
+  border-bottom: 3px solid #009acd;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+  color: #009acd;
+}
+
+header h1 a {
+  color: #009acd;
+}
+
+header span {
+  color: #666;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+header .h_right input[type="text"] {
+  width: 250px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.nav li {
+  display: inline;
+  padding-right: 15px;
+}
+
+.main-nav {
+  height: 45px;
+  overflow: hidden;
+  background: #333;
+  color: white;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.main-nav li {
+  height: 40px;
+  line-height: 40px;
+}
+
+.main-nav a {
+  color: white;
+  padding: 8px;
+}
+
+.main-nav a:hover {
+  color: #009acd;
+}
+
+.content {
+  margin-top: 30px;
+  line-height: 1.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  width: 65%;
+}
+
+.side {
+  width: 30%;
+}
+
+.block {
+  border: #ccc;
+  padding: 5px 15px 25px 15px;
+  background: #fcfcfc;
+  overflow: hidden;
+}
+
+.block h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+article.post {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+article.post .meta {
+  background: #009acd;
+  color: #fff;
+  padding: 7px;
+}
+
+.button {
+  background: #009acd;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+footer.main-footer {
+  margin-top: 40px;
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 20px 0;
+  overflow: auto;
+}
+
+footer.main-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f_right li {
+  display: inline;
+  margin-left: 20px;
+  color: #fff;
+}
+
+.f_right a {
+  color: #fff;
+}
