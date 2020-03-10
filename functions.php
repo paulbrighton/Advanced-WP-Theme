@@ -8,6 +8,9 @@ function adv_theme_support() {
     'primary'       =>    __('Primary Menu'),
     'footer'        =>    __('Footer Menu')
   ));
+
+  // Post Format Support
+  add_theme_support('post-formats', array( 'aside', 'gallery', 'link' ));
 }
 
 add_action('after_setup_theme', 'adv_theme_support');
