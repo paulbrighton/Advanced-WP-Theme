@@ -263,3 +263,13 @@ footer.main-footer .container {
 .sub-nav .current_page_item {
   font-weight: bold;
 }
+
+.side-widget {
+  margin-bottom: 20px;
+}
+
+.side-widget li {
+  list-style: none;
+  line-height: 1.8em;
+  border-bottom: 1px dotted #ccc;
+}
