@@ -9,6 +9,8 @@
     <?php else : ?>
       <?php echo wpautop('Sorry, there are no posts to view yet.') ?>
     <?php endif; ?>
+
+    <?php comments_template() ?>
   </div>
 
   <div class="side">

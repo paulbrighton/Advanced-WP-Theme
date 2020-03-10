@@ -177,8 +177,6 @@ article.post-gallery {
   margin-top: 5px;
 }
 
-
-
 .button {
   background: #009acd;
   color: #fff;
@@ -229,7 +227,8 @@ footer.main-footer .container {
   margin-bottom: 10px;
 }
 
-.archive-post h4, .archive-post p {
+.archive-post h4,
+.archive-post p {
   margin: 0;
   padding: 0;
 }
@@ -272,4 +271,87 @@ footer.main-footer .container {
   list-style: none;
   line-height: 1.8em;
   border-bottom: 1px dotted #ccc;
+}
+
+.showcase {
+  background: #e0eefc;
+  padding: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.box-widgets {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.box-flex {
+  width: 32%;
+  padding: 0 6px;
+  line-height: 1.5em;
+}
+
+.box-flex h3 {
+  background: #009acd;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+}
+
+.box-flex li {
+  list-style-type: none;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.comment-body {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 20px 10px;
+}
+
+.comment-meta {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  overflow: auto;
+}
+
+.comment-meta img {
+  float: left;
+  margin-right: 10px;
+}
+
+.comment-meta time {
+  float: left;
+  margin-left: 12px;
+}
+
+.comment {
+  list-style: none;
+}
+
+.comment-reply-link {
+  background: #009acd;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 15px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.comment-form input {
+  height: 30px;
+}
+
+.comment-edit-link {
+  display: none;
 }
