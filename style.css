@@ -233,3 +233,33 @@ footer.main-footer .container {
   margin: 0;
   padding: 0;
 }
+
+.phone {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.sub-nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sub-nav .parent-link {
+  font-weight: bold;
+  color: #000;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #009acd;
+}
+
+.sub-nav .parent-link a {
+  font-weight: bold;
+  color: #000;
+}
+
+.sub-nav .current_page_item {
+  font-weight: bold;
+}
