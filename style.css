@@ -199,3 +199,14 @@ footer.main-footer .container {
 .sticky-footer {
   flex: 1 1 auto;
 }
+
+.archive-post {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.archive-post h4, .archive-post p {
+  margin: 0;
+  padding: 0;
+}
