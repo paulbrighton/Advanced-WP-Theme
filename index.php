@@ -11,94 +11,98 @@
 </head>
 
 <body <?php body_class(); ?>>
-  <header>
-    <div class="container">
-      <h1>
-        <a href="index.html"><?php bloginfo('name'); ?></a>
-        <span><?php bloginfo('description'); ?></span>
-      </h1>
-      <div class="h_right">
-        <form method="get" action="<?php esc_url(home_url('/')); ?>">
-          <input type="text" name="s" placeholder="Search...">
-        </form>
+  <div class="main-container">
+    <header>
+      <div class="container">
+        <h1>
+          <a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>
+          <span><?php bloginfo('description'); ?></span>
+        </h1>
+        <div class="h_right">
+          <form method="get" action="<?php esc_url(home_url('/')); ?>">
+            <input type="text" name="s" placeholder="Search...">
+          </form>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <nav class="nav main-nav">
-    <div class="container">
-      <?php
+    <nav class="nav main-nav">
+      <div class="container">
+        <?php
         $args = array(
           'theme_location'    =>    'primary'
         );
-      ?>
+        ?>
 
-      <?php wp_nav_menu($args) ?>
-    </div>
-  </nav>
+        <?php wp_nav_menu($args) ?>
+      </div>
+    </nav>
 
-  <div class="container content">
-    <div class="main block">
-      <article class="post">
-        <h2>Blog Post 1</h2>
-        <p class="meta">Posted at 11:00 on May 9 by admin</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, ante sit amet ullamcorper pretium, nisi nisi luctus libero, vitae sagittis neque urna a nisi. Pellentesque sit amet scelerisque magna. Nunc sodales rutrum lorem et imperdiet. Nunc tincidunt arcu ut velit varius egestas. Praesent vestibulum sagittis mauris, eget condimentum risus ultrices non. Etiam porttitor odio in purus posuere, a venenatis purus pretium. Integer quis urna scelerisque, vehicula purus eu, auctor metus. Suspendisse auctor purus ac ligula volutpat posuere. Proin suscipit mauris nec mollis bibendum. Curabitur leo est, viverra et pulvinar nec, tincidunt eu justo. Donec sodales, tellus vel vulputate varius, dolor ligula commodo risus, sit amet consequat sem nulla quis quam. Nam commodo, ante sit amet dictum faucibus, nisl tortor vestibulum tellus, ut placerat justo leo et lorem. Sed arcu tellus, sollicitudin in erat vestibulum, mattis ornare ipsum. Aliquam nec urna imperdiet, consequat mauris eu, tempus enim. Fusce porta, urna eget tempus malesuada, tortor ligula fermentum turpis, ut fringilla lacus nunc sed velit. Pellentesque finibus congue felis, in congue lacus malesuada eget.
-        </p>
-        <p>
-          Duis tellus risus, convallis ac mi in, varius pharetra lacus. Nunc bibendum vel urna at fringilla. Morbi varius, urna vel varius posuere, libero velit ultricies dui, nec convallis urna turpis et metus. Pellentesque viverra rhoncus odio, quis dignissim nisl bibendum ac. Etiam ipsum magna, viverra auctor metus vestibulum, viverra accumsan odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ornare auctor mattis. Donec vitae posuere ipsum, vel bibendum ex. Pellentesque gravida sodales nisl, sit amet sodales lorem efficitur quis. Donec non turpis in leo feugiat elementum eget eget ligul</p>
+    <div class="container content sticky-footer">
+      <div class="main block">
+        <?php if (have_posts()) : ?>
+          <?php while (have_posts()) : the_post(); ?>
+            <article class="post">
+              <h2><?php the_title(); ?></h2>
+              <p class="meta">
+                Posted at
+                <?php the_time('F j, Y g:i a'); ?>
+                by
+                <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                  <?php the_author(); ?>.
+                </a>
+                Posted In
+                <?php
+                $categories = get_the_category();
+                $seperator = ', ';
+                $output     = '';
 
-        <a class="button" href="#">Read More</a>
-      </article>
+                if ($categories) {
+                  foreach ($categories as $category) {
+                    $output .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . ' </a>' . $seperator;
+                  }
+                }
 
-      <article class="post">
-        <h2>Blog Post 1</h2>
-        <p class="meta">Posted at 11:00 on May 9 by admin</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, ante sit amet ullamcorper pretium, nisi nisi luctus libero, vitae sagittis neque urna a nisi. Pellentesque sit amet scelerisque magna. Nunc sodales rutrum lorem et imperdiet. Nunc tincidunt arcu ut velit varius egestas. Praesent vestibulum sagittis mauris, eget condimentum risus ultrices non. Etiam porttitor odio in purus posuere, a venenatis purus pretium. Integer quis urna scelerisque, vehicula purus eu, auctor metus. Suspendisse auctor purus ac ligula volutpat posuere. Proin suscipit mauris nec mollis bibendum. Curabitur leo est, viverra et pulvinar nec, tincidunt eu justo. Donec sodales, tellus vel vulputate varius, dolor ligula commodo risus, sit amet consequat sem nulla quis quam. Nam commodo, ante sit amet dictum faucibus, nisl tortor vestibulum tellus, ut placerat justo leo et lorem. Sed arcu tellus, sollicitudin in erat vestibulum, mattis ornare ipsum. Aliquam nec urna imperdiet, consequat mauris eu, tempus enim. Fusce porta, urna eget tempus malesuada, tortor ligula fermentum turpis, ut fringilla lacus nunc sed velit. Pellentesque finibus congue felis, in congue lacus malesuada eget.
-        </p>
-        <p>
-          Duis tellus risus, convallis ac mi in, varius pharetra lacus. Nunc bibendum vel urna at fringilla. Morbi varius, urna vel varius posuere, libero velit ultricies dui, nec convallis urna turpis et metus. Pellentesque viverra rhoncus odio, quis dignissim nisl bibendum ac. Etiam ipsum magna, viverra auctor metus vestibulum, viverra accumsan odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ornare auctor mattis. Donec vitae posuere ipsum, vel bibendum ex. Pellentesque gravida sodales nisl, sit amet sodales lorem efficitur quis. Donec non turpis in leo feugiat elementum eget eget ligul</p>
+                echo trim($output, $seperator);
+                ?>
+              </p>
+              <?php the_excerpt(); ?>
+              <a class="button" href="<?php the_permalink(); ?>">Read More</a>
+            </article>
+          <?php endwhile; ?>
+        <?php else : ?>
+          <?php echo wpautop('Sorry, there are no posts to view yet.') ?>
+        <?php endif; ?>
+      </div>
 
-        <a class="button" href="#">Read More</a>
-      </article>
-
-      <article class="post">
-        <h2>Blog Post 1</h2>
-        <p class="meta">Posted at 11:00 on May 9 by admin</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum, ante sit amet ullamcorper pretium, nisi nisi luctus libero, vitae sagittis neque urna a nisi. Pellentesque sit amet scelerisque magna. Nunc sodales rutrum lorem et imperdiet. Nunc tincidunt arcu ut velit varius egestas. Praesent vestibulum sagittis mauris, eget condimentum risus ultrices non. Etiam porttitor odio in purus posuere, a venenatis purus pretium. Integer quis urna scelerisque, vehicula purus eu, auctor metus. Suspendisse auctor purus ac ligula volutpat posuere. Proin suscipit mauris nec mollis bibendum. Curabitur leo est, viverra et pulvinar nec, tincidunt eu justo. Donec sodales, tellus vel vulputate varius, dolor ligula commodo risus, sit amet consequat sem nulla quis quam. Nam commodo, ante sit amet dictum faucibus, nisl tortor vestibulum tellus, ut placerat justo leo et lorem. Sed arcu tellus, sollicitudin in erat vestibulum, mattis ornare ipsum. Aliquam nec urna imperdiet, consequat mauris eu, tempus enim. Fusce porta, urna eget tempus malesuada, tortor ligula fermentum turpis, ut fringilla lacus nunc sed velit. Pellentesque finibus congue felis, in congue lacus malesuada eget.
-        </p>
-        <p>
-          Duis tellus risus, convallis ac mi in, varius pharetra lacus. Nunc bibendum vel urna at fringilla. Morbi varius, urna vel varius posuere, libero velit ultricies dui, nec convallis urna turpis et metus. Pellentesque viverra rhoncus odio, quis dignissim nisl bibendum ac. Etiam ipsum magna, viverra auctor metus vestibulum, viverra accumsan odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ornare auctor mattis. Donec vitae posuere ipsum, vel bibendum ex. Pellentesque gravida sodales nisl, sit amet sodales lorem efficitur quis. Donec non turpis in leo feugiat elementum eget eget ligul</p>
-
-        <a class="button" href="#">Read More</a>
-      </article>
-    </div>
-
-    <div class="side">
-      <div class="block">
-        <h3>Sidebar Head</h3>
-        <p>Duis tellus risus, convallis ac mi in, varius pharetra lacus. Nunc bibendum vel urna at fringilla. Morbi varius, urna vel varius posuere, libero velit ultricies dui, nec convallis urna turpis et metus.</p>
-        <a class="button">More</a>
+      <div class="side">
+        <div class="block">
+          <h3>Sidebar Head</h3>
+          <p>Duis tellus risus, convallis ac mi in, varius pharetra lacus. Nunc bibendum vel urna at fringilla. Morbi varius, urna vel varius posuere, libero velit ultricies dui, nec convallis urna turpis et metus.</p>
+          <a class="button">More</a>
+        </div>
       </div>
     </div>
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="f_left">
+          <p>&copy; 2016 - Advanced WP Theme</p>
+        </div>
+        <div class="f_right">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+    <?php wp_footer(); ?>
   </div>
 
-  <footer class="main-footer">
-    <div class="container">
-      <div class="f_left">
-        <p>&copy; 2016 - Advanced WP Theme</p>
-      </div>
-      <div class="f_right">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#">Services</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </footer>
-
-  <?php wp_footer(); ?>
 </body>
 
 </html>

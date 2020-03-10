@@ -135,6 +135,14 @@ article.post .meta {
   padding: 7px;
 }
 
+article.post .meta a {
+  color: #fff;
+}
+
+article.post .meta a:hover {
+  text-decoration: underline;
+}
+
 .button {
   background: #009acd;
   color: #fff;
@@ -166,4 +174,15 @@ footer.main-footer .container {
 
 .f_right a {
   color: #fff;
+}
+
+/* Sticky Footer */
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.sticky-footer {
+  flex: 1 1 auto;
 }
