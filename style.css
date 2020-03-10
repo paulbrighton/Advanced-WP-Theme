@@ -135,12 +135,25 @@ article.post .meta {
   padding: 7px;
 }
 
+.title-link {
+  color: #333;
+}
+
+.title-link:hover {
+  color: #009acd;
+}
+
 article.post .meta a {
   color: #fff;
 }
 
 article.post .meta a:hover {
   text-decoration: underline;
+}
+
+article .post-thumbnail img {
+  width: 100%;
+  height: auto;
 }
 
 .button {

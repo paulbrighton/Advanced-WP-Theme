@@ -5,11 +5,7 @@
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
         <article class="post">
-          <h2>
-            <a class="title-link" href="<?php the_permalink(); ?>">
-              <?php the_title(); ?>
-            </a>
-          </h2>
+          <h2><?php the_title(); ?></h2>
           <p class="meta">
             Posted at
             <?php the_time('F j, Y g:i a'); ?>
@@ -32,14 +28,13 @@
             echo trim($output, $seperator);
             ?>
           </p>
-          <?php if (has_post_thumbnail()) : ?>
+          <?php if(has_post_thumbnail()) : ?>
             <div class="post-thumbnail">
               <?php the_post_thumbnail(); ?>
             </div>
           <?php endif; ?>
-
-          <?php the_excerpt(); ?>
-          <a class="button" href="<?php the_permalink(); ?>">Read More</a>
+          
+          <?php the_content(); ?>
         </article>
       <?php endwhile; ?>
     <?php else : ?>
